@@ -72,6 +72,7 @@ macro(build_asio)
   # VxWorks patches, then install the include/ tree in the install step.
   externalproject_add(asio_external
     URL https://github.com/chriskohlhoff/asio/archive/refs/tags/${ASIO_VERSION_TAG}.tar.gz
+    DOWNLOAD_EXTRACT_TIMESTAMP TRUE
     TIMEOUT 600
     PATCH_COMMAND ${_patch_cmd}
     CONFIGURE_COMMAND ""
