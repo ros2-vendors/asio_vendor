@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<?xml-model
+  href="http://download.ros.org/schema/package_format2.xsd"
+  schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="2">
+  <name>asio_vendor</name>
+  <version>0.1.0</version>
+  <description>
+    Installs the standalone Asio C++ networking headers (version 1.30.2),
+    patched for VxWorks, so Fast-DDS can consume them. Fast-DDS requires
+    Asio &gt;= 1.13.0; 1.30.2 satisfies that and matches Ubuntu 26.04 (resolute)
+    libasio-dev. Header-only: the vendor stages the patched include/ tree into
+    the shared install prefix. VxWorks patches: unistd platform flag, socketpair
+    unsupported, sys/poll include, and the IP_MULTICAST_LOOP 1-byte optlen
+    workaround (ported from the Wind River Boost.Asio VxWorks patch).
+  </description>
+  <maintainer email="Andrei.Kholodnyi@gmail.com">Andrei Kholodnyi</maintainer>
+  <license>Apache License 2.0</license> <!-- the contents of this package are Apache 2.0 -->
+  <license>BSL-1.0</license>            <!-- Asio is Boost Software License 1.0 -->
+
+  <url type="repository">https://github.com/chriskohlhoff/asio</url>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>git</buildtool_depend>
+
+  <depend>libasio-dev</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
